@@ -5,24 +5,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
-@Entity
+
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-
-public class Coordinate extends BaseEntity {
+@Embeddable
+public class Coordinate {
 
     private BigDecimal latitude;
     private BigDecimal longitude;
-    @ManyToOne
-    private Product product;
 
 
     public Coordinate(BigDecimal latitude, BigDecimal longitude) {

@@ -2,21 +2,18 @@ package com.agency.space.datahub.controller.service;
 
 import com.agency.space.datahub.controller.model.Coordinate;
 import com.agency.space.datahub.controller.model.Product;
-import com.agency.space.datahub.controller.repository.CoordinateRepository;
 import com.agency.space.datahub.controller.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
     ProductRepository productRepository;
-    CoordinateRepository coordinateRepository;
 
-    public ProductServiceImpl(ProductRepository productRepository, CoordinateRepository coordinateRepository) {
+    public ProductServiceImpl(ProductRepository productRepository) {
         this.productRepository = productRepository;
-        this.coordinateRepository = coordinateRepository;
+
     }
 
     @Override
@@ -26,10 +23,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void save(Product product) {
-        ArrayList<Coordinate> coordinates = new ArrayList<>(product.getFootprint());
-        for (Coordinate coordinate : coordinates){
-            coordinateRepository.save(coordinate);
-        }
         productRepository.save(product);
     }
 

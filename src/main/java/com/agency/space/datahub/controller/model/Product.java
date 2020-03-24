@@ -20,7 +20,11 @@ public class Product extends BaseEntity {
     @ManyToOne
     private Mission mission;
     private Date acquisitionDate;
-    @OneToMany
+    @ElementCollection
+    @CollectionTable(
+            name="COORDINATES",
+            joinColumns = @JoinColumn(name = "PROD_ID")
+    )
     private List<Coordinate> footprint;
     private BigDecimal price;
     private String picUrl;
