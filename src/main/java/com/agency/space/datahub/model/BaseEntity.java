@@ -1,4 +1,4 @@
-package com.agency.space.datahub.controller.model;
+package com.agency.space.datahub.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +21,6 @@ Base class with property ID
 public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
 }

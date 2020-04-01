@@ -1,6 +1,6 @@
-package com.agency.space.datahub.controller.service;
+package com.agency.space.datahub.service;
 
-import com.agency.space.datahub.controller.model.Mission;
+import com.agency.space.datahub.model.Mission;
 
 import java.util.List;
 

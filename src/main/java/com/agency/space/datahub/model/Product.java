@@ -1,13 +1,13 @@
-package com.agency.space.datahub.controller.model;
+package com.agency.space.datahub.model;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -17,15 +17,26 @@ import java.util.List;
 @ToString
 public class Product extends BaseEntity {
 
+    @NotNull
     @ManyToOne
     private Mission mission;
-    private Date acquisitionDate;
+
+    @NotNull
+    private LocalDateTime acquisitionDate;
+
+    @NotNull
     @ElementCollection
     @CollectionTable(
-            name="COORDINATES",
+            name = "COORDINATES",
             joinColumns = @JoinColumn(name = "PROD_ID")
     )
     private List<Coordinate> footprint;
+
+    @NotNull
     private BigDecimal price;
+
+
+    @NotNull
+    @Column(unique = true)
     private String picUrl;
 }

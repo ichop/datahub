@@ -1,4 +1,4 @@
-package com.agency.space.datahub.controller.model;
+package com.agency.space.datahub.model;
 
 public enum ImageryType {
     Panchromatic, Multispectral, Hyperspectral
